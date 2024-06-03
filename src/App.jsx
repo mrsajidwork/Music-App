@@ -61,8 +61,8 @@ function App() {
               tracks.map((track, index) => (
                 <li className="card" key={index} data-track-url={track.url} onClick={playingAudio} data-track-id={track.id}>
                   <a href="javascript.void(0)" id="card">
-                    <img src="./src/assets/images/130_168.jpg" alt="" />
-                    <span><img src="./src/assets/images/23_136.png" alt=""/></span>
+                    <img src="assets/images/130_168.jpg" alt="" />
+                    <span><img src="assets/images/23_136.png" alt=""/></span>
                     <span><p>{track.name}</p></span>
                   </a>
                 </li>

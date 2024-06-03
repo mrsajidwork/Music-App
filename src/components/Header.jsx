@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 
 export default function Header(props) {
 
-    const [playIcon, setPlayIcon] = useState('./src/assets/images/play-buttton.png')
+    const [playIcon, setPlayIcon] = useState('assets/images/play-buttton.png')
 
     const [audioStatus, setAudioStatus] = useState('Paused')
 
-    const [muteIcon, setMuteIcon] = useState('./src/assets/images/volume-up-interface-symbol.png')
+    const [muteIcon, setMuteIcon] = useState('assets/images/volume-up-interface-symbol.png')
 
     Header.propTypes = {
         currentPlaying: PropTypes.object,
@@ -30,9 +30,9 @@ export default function Header(props) {
             if (props.currentPlaying !== null) {
                 props.currentPlaying.volume = e.target.value / 100
                 if (e.target.value == 0) {
-                    setMuteIcon('./src/assets/images/mute.png')
+                    setMuteIcon('assets/images/mute.png')
                 } else {
-                    setMuteIcon('./src/assets/images/volume-up-interface-symbol.png')
+                    setMuteIcon('assets/images/volume-up-interface-symbol.png')
                 }
             }
      
@@ -42,10 +42,10 @@ export default function Header(props) {
         if (props.currentPlaying !== null) {
             if (props.currentPlaying.muted) {
                 props.currentPlaying.muted = false
-                setMuteIcon('./src/assets/images/volume-up-interface-symbol.png')
+                setMuteIcon('assets/images/volume-up-interface-symbol.png')
             } else {
                 props.currentPlaying.muted = true
-                setMuteIcon('./src/assets/images/mute.png')
+                setMuteIcon('assets/images/mute.png')
             }
         }
     }
@@ -53,15 +53,15 @@ export default function Header(props) {
     useEffect(() => {
         if (props.currentPlaying !== null) {
             props.currentPlaying.onplay = () => {
-                setPlayIcon('./src/assets/images/pause.png')
+                setPlayIcon('assets/images/pause.png')
                 setAudioStatus('Playing')
             }
             props.currentPlaying.onpause = () => {
-                setPlayIcon('./src/assets/images/play-buttton.png')
+                setPlayIcon('assets/images/play-buttton.png')
                 setAudioStatus('Paused')
             }
             props.currentPlaying.onended = () => {
-                setPlayIcon('./src/assets/images/play-buttton.png')
+                setPlayIcon('assets/images/play-buttton.png')
                 setAudioStatus('Paused')
             }
         }
@@ -78,7 +78,7 @@ export default function Header(props) {
                     <img id="audio" src={playIcon} alt="" onClick={playPauseSwitch}/>
                     <div className="music">
                         <div className="inner-div">
-                            <img src="./src/assets/images/130_168.jpg" alt=""/>
+                            <img src="assets/images/130_168.jpg" alt=""/>
                             <div className="content">
                                 <p>{audioStatus}</p>
                                 <h4 id="songname">{props.currentPlayingName}</h4>
